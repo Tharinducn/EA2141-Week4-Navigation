@@ -1,6 +1,12 @@
 import { View, Text, StyleSheet } from "react-native";
+import { useLocalSearchParams } from "expo-router";
 
 export default function Home() {
+  
+  const params = useLocalSearchParams();
+  const username = params.username;
+
+  console.log({params})
 
   const now = new Date();
   const currentDate = now.toLocaleDateString();
@@ -8,7 +14,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Welcome, User!</Text>
+      <Text style={styles.welcomeText}>Welcome, {username}</Text>
       <Text style={styles.dateText}>Current Date: {currentDate}</Text>
       <Text style={styles.timeText}>Current Time: {currentTime}</Text>
     </View>

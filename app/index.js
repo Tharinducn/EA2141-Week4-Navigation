@@ -1,26 +1,37 @@
+import { useState } from "react";
 import { View, TextInput, Pressable, StyleSheet, Text } from "react-native";
 import { Link } from "expo-router";
 
 export default function Page() {
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+
     return (
         <View style={styles.container}>
             <View style={styles.formContainer}>
                 <View style={styles.inputWrapper}>
                     <TextInput
+                        value={username}
                         placeholder="Username"
+                        onChangeText={(text) => setUsername(text)}
                         placeholderTextColor="#8e8e93"
                         style={styles.input}
                     />
                 </View>
                 <View style={styles.inputWrapper}>
                     <TextInput
+                        value={password}
                         placeholder="Password"
+                        onChangeText={(text) => setPassword(text)}
                         placeholderTextColor="#8e8e93"
                         secureTextEntry
                         style={styles.input}
                     />
                 </View>
-                <Link href="home" asChild>
+                <Link href={{
+                    pathname: '/home',
+                    params: { username: username }
+                }} asChild>
                     <Pressable style={styles.buttonContainer}>
                         <Text style={styles.buttonText}>Login</Text>
                     </Pressable>
