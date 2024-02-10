@@ -4,6 +4,7 @@ import { Link } from "expo-router";
 export default function Page() {
     return (
         <View style={styles.container}>
+            {/* Link is used to navigate to another screen */}
             <Link href={'/home'}>Go to Home</Link>
         </View>
     )
