@@ -6,6 +6,7 @@ export default function Page() {
         <View style={styles.container}>
             <View style={styles.formContainer}>
                 <View style={styles.inputWrapper}>
+                    {/* TextInput is used to get user input */}
                     <TextInput
                         placeholder="Username"
                         placeholderTextColor="#8e8e93"
@@ -21,6 +22,7 @@ export default function Page() {
                     />
                 </View>
                 <Link href="home" asChild>
+                    {/* Pressable is used to detect press interaction like a button */}
                     <Pressable style={styles.buttonContainer}>
                         <Text style={styles.buttonText}>Login</Text>
                     </Pressable>

@@ -2,6 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 export default function Home() {
 
+  // Get the current date and time
   const now = new Date();
   const currentDate = now.toLocaleDateString();
   const currentTime = now.toLocaleTimeString();
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.welcomeText}>Welcome, User!</Text>
+      {/* Display the current date and time */}
       <Text style={styles.dateText}>Current Date: {currentDate}</Text>
       <Text style={styles.timeText}>Current Time: {currentTime}</Text>
     </View>
