@@ -1,22 +1,26 @@
-import { View, Text, StyleSheet } from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import { useState } from "react";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 
 export default function Home() {
-  
-  const params = useLocalSearchParams();
-  const username = params.username;
+  const [count, setCount] = useState(0); // Initialize the state
 
-  console.log({params})
+  const increment = () => {
+    setCount(count + 1); // Update the state to increase the count
+  };
 
-  const now = new Date();
-  const currentDate = now.toLocaleDateString();
-  const currentTime = now.toLocaleTimeString();
+  const decrement = () => {
+    setCount(count - 1); // Update the state to decrease the count
+  };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Welcome, {username}</Text>
-      <Text style={styles.dateText}>Current Date: {currentDate}</Text>
-      <Text style={styles.timeText}>Current Time: {currentTime}</Text>
+      <Text style={styles.counterText}>Count: {count}</Text>
+      <Pressable style={styles.button} onPress={increment}>
+        <Text>Increment</Text>
+      </Pressable>
+      <Pressable style={styles.button} onPress={decrement}>
+        <Text>Decrement</Text>
+      </Pressable>
     </View>
   );
 }
@@ -26,21 +30,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcomeText: {
+  counterText: {
     fontSize: 24,
-    textAlign: 'center',
     margin: 10,
   },
-  dateText: {
-    fontSize: 22,
-    textAlign: 'center',
-    marginTop: 10,
-  },
-  timeText: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginTop: 10,
+  button: {
+    margin: 5,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: '#DDDDDD',
+    borderRadius: 5,
   },
 });
