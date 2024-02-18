@@ -1,32 +1,21 @@
-import { View, TextInput, Pressable, StyleSheet, Text } from "react-native";
+import { View, Pressable, StyleSheet, Text } from "react-native";
 import { Link } from "expo-router";
 
 export default function Page() {
     return (
         <View style={styles.container}>
-            <View style={styles.formContainer}>
-                <View style={styles.inputWrapper}>
-                    {/* TextInput is used to get user input */}
-                    <TextInput
-                        placeholder="Username"
-                        placeholderTextColor="#8e8e93"
-                        style={styles.input}
-                    />
-                </View>
-                <View style={styles.inputWrapper}>
-                    <TextInput
-                        placeholder="Password"
-                        placeholderTextColor="#8e8e93"
-                        secureTextEntry
-                        style={styles.input}
-                    />
-                </View>
-                <Link href="home" asChild>
-                    {/* Pressable is used to detect press interaction like a button */}
-                    <Pressable style={styles.buttonContainer}>
-                        <Text style={styles.buttonText}>Login</Text>
-                    </Pressable>
-                </Link>
+            <Link href="note" asChild>
+                <Pressable style={styles.addButton}>
+                    <Text style={styles.addButtonText}>Add New Note</Text>
+                </Pressable>
+            </Link>
+            <View style={styles.noteItem}>
+                <Text style={styles.noteTitle}>{'Grocery List'}</Text>
+                <Text>{'Apples, Bananas, Bread, Milk, Eggs'}</Text>
+            </View>
+            <View style={styles.noteItem}>
+                <Text style={styles.noteTitle}>{'ToDo'}</Text>
+                <Text>{'Complete React Native assignment'}</Text>
             </View>
         </View>
     )
@@ -35,48 +24,31 @@ export default function Page() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#f0f0f0',
+    },
+    noteItem: {
+        backgroundColor: 'white',
+        padding: 20,
+        marginVertical: 8,
+        marginHorizontal: 16,
+        borderRadius: 10,
+    },
+    noteTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    addButton: {
+        backgroundColor: 'orange',
+        borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
+        marginHorizontal: 16,
+        marginVertical: 8,
     },
-    formContainer: {
-        width: '80%',
-        paddingHorizontal: 20,
-        borderWidth: 1,
-        borderRadius: 20,
-        paddingVertical: 30,
-        borderColor: '#F7F7F7',
-        backgroundColor: 'lightgrey',
-    },
-    inputWrapper: {
-        backgroundColor: '#FFFFFF',
-        borderRadius: 20,
-        marginBottom: 15,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 8,
-        elevation: 2,
-    },
-    input: {
-        height: 50,
-        paddingHorizontal: 20,
-        fontSize: 16,
-        color: '#000',
-    },
-    buttonContainer: {
-        backgroundColor: '#007AFF',
-        paddingVertical: 15,
-        borderRadius: 20,
-        shadowColor: '#007AFF',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 8,
-        elevation: 2,
-    },
-    buttonText: {
-        color: '#FFFFFF',
-        fontSize: 18,
-        fontWeight: '600',
-        textAlign: 'center',
+    addButtonText: {
+        fontSize: 24,
+        color: 'white',
+        padding: 20,
+        fontWeight: '600'
     },
 });

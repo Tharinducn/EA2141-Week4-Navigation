@@ -4,11 +4,10 @@ export default function RootLayout() {
   return (
     <Stack>
         <Stack.Screen name="index" options={{
-            headerTitle: "Login",
-            headerShown: false
+            headerTitle: "My Notes",
         }}/>
-        <Stack.Screen name="home" options={{
-            headerTitle: "Home",
+        <Stack.Screen name="note" options={{
+            headerTitle: "Add Note",
         }}/>
     </Stack>
   );
