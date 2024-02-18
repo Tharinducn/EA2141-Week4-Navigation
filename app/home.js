@@ -2,14 +2,14 @@ import { useState } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 
 export default function Home() {
-  const [count, setCount] = useState(0); // Initialize the state
+  const [count, setCount] = useState(0); // initializing count state as 0 to begin
 
-  const increment = () => {
-    setCount(count + 1); // Update the state to increase the count
+  function increment(){
+    setCount(count + 1); // Update the count state to increase the count
   };
 
-  const decrement = () => {
-    setCount(count - 1); // Update the state to decrease the count
+  function decrement(){
+    setCount(count - 1); // Update the count state to decrease the count
   };
 
   return (
