@@ -1,45 +1,23 @@
-import { useState } from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import HorizontalScrollView from "../components/HorizontalScrollView";
+import VerticalScrollView from "../components/VerticalScrollView";
 
 export default function Home() {
-  const [count, setCount] = useState(0); // initializing count state as 0 to begin
-
-  function increment(){
-    setCount(count + 1); // Update the count state to increase the count
-  };
-
-  function decrement(){
-    setCount(count - 1); // Update the count state to decrease the count
-  };
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.counterText}>Count: {count}</Text>
-      <Pressable style={styles.button} onPress={increment}>
-        <Text>Increment</Text>
-      </Pressable>
-      <Pressable style={styles.button} onPress={decrement}>
-        <Text>Decrement</Text>
-      </Pressable>
-    </View>
-  );
+    // Comment out the component you don't want to see
+    <HorizontalScrollView />
+    // <VerticalScrollView />
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  heading: {
+    fontSize: 40,
+    color: 'red'
   },
-  counterText: {
-    fontSize: 24,
-    margin: 10,
-  },
-  button: {
-    margin: 5,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    backgroundColor: '#DDDDDD',
-    borderRadius: 5,
-  },
+  subHeading: {
+    fontSize: 30,
+    color: 'red'
+  }
 });
+
