@@ -1,10 +1,25 @@
 import { useState } from "react";
 import { View, TextInput, Pressable, StyleSheet, Text } from "react-native";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 
 export default function Page() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+
+    const handleLogin = () => {
+        if (!username || !password) {
+            alert('Username and password are required')
+            return
+        }
+        if (username !== 'Admin' || password !== '123456') {
+            alert('Invalid username or password')
+            return
+        }
+        router.replace({
+            pathname: '/home',
+            params: { username }
+        });
+    }
 
     return (
         <View style={styles.container}>
@@ -28,14 +43,9 @@ export default function Page() {
                         style={styles.input}
                     />
                 </View>
-                <Link href={{
-                    pathname: '/home',
-                    params: { username: username }
-                }} asChild>
-                    <Pressable style={styles.buttonContainer}>
-                        <Text style={styles.buttonText}>Login</Text>
-                    </Pressable>
-                </Link>
+                <Pressable style={styles.buttonContainer} onPress={handleLogin}>
+                    <Text style={styles.buttonText}>Login</Text>
+                </Pressable>
             </View>
         </View>
     )
